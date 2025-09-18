@@ -30,7 +30,7 @@ const projects = [
     image: "/projects/profile.png",
     link: "/projects/project-three",
     tags: ["React","JavaScript", "Tailwind CSS", "Vite", "Framer Motion", "Gsap", "Vercel"],
-    demoUrl: "https://demo.projectthree.com",
+    demoUrl: "https://professional-website-3tkqbm3fs-bycrissr189-8693s-projects.vercel.app/",
     repoUrl: "https://github.com/user/project-three"
   },
   {
@@ -113,7 +113,7 @@ export const ProjectSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/ByCristtv"
           >
             Check My Github <ArrowRight size={16} />
           </a>
