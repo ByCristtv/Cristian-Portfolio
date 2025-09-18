@@ -4,26 +4,10 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-interface Star {
-    id: number;
-    size: number;
-    x: number;
-    y: number;
-    opacity: number;
-    animationDuration: number;
-}
-interface Meteor {
-    id: number;
-    size: number;
-    x: number;
-    y: number;
-    delay: any;
-    animationDuration: number;
-}
 
 export const StarBackground = () => {
-    const [stars, setStars] = useState<Star[]>([]);
-    const [meteors, setMeteors] = useState<Meteor[]>([]);
+    const [stars, setStars] = useState([]);
+    const [meteors, setMeteors] = useState([]);
 
     useEffect(() => {
         generateStars();
@@ -43,7 +27,7 @@ export const StarBackground = () => {
         const numberOfStars = Math.floor(
             (window.innerWidth * window.innerHeight) / 10000);
 
-        const newStars: Star[] = []
+        const newStars= []
 
         for (let i = 0; i < numberOfStars; i++) {
             newStars.push({
@@ -60,7 +44,7 @@ export const StarBackground = () => {
 
     const generateMeteors = () => {
         const numberOfMeteors = 4;
-        const newMeteors: Meteor[] = []
+        const newMeteors= []
 
         for (let i = 0; i < numberOfMeteors; i++) {
             newMeteors.push({
