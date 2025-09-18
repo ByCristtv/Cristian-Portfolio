@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import React from 'react'
+import Img from 'next/image';
 
 const projects = [
   {
@@ -65,7 +66,7 @@ export const ProjectSection = () => {
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
               <div className="h-48 overflow-hidden">
-                <img
+                <Img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

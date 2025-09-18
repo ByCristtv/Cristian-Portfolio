@@ -6,7 +6,6 @@ import { Hero } from '@/components/Hero';
 import { AboutSection } from '@/components/AboutSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { ProjectSection } from '@/components/ProjectSection';
-import { Contact } from 'lucide-react';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 
