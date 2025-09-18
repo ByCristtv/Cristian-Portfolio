@@ -20,7 +20,7 @@ export const AboutSection = () => {
               
             </p>
             <p className='text-muted-foreground'>
-              I'm currently focused on mastering my skills in Express, React, Node.js, Next.js, Tailwind CSS, Python, TypeScript, and relational databases such as SQL Server and NoSQL like MongoDB and Firestore.
+              I&apos;m currently focused on mastering my skills in Express, React, Node.js, Next.js, Tailwind CSS, Python, TypeScript, and relational databases such as SQL Server and NoSQL like MongoDB and Firestore.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 pt-4 justify-center'>
               <a href="#contact" className='cosmic-button'>
