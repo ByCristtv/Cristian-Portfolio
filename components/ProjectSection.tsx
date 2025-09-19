@@ -19,7 +19,7 @@ const projects = [
     description: "A real-time chat application built with React, Firebase and ZegoCloud.",
     image: "/projects/ChatApp.png",
     link: "/projects/chat-application",
-    tags: ["React", "JavaScript", "Tailwind CSS", "Vite", "Firebase", "ZegoCloud", "Context API", "Vercel"],
+    tags: ["React", "JavaScript", "Tailwind CSS", "NodeJS", "Vite", "Firebase", "ZegoCloud", "Context API", "Vercel"],
     demoUrl: "https://demo.projecttwo.com",
     repoUrl: "https://github.com/user/project-two"
   },
@@ -66,7 +66,7 @@ export const ProjectSection = () => {
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
               <div className="h-48 overflow-hidden">
-                <Img
+                <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

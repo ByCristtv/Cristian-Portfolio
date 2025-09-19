@@ -34,7 +34,7 @@ export const NavBar = () => {
             <a href="#hero"
             className='text-xl font-bold text-primary flex items-center'>
                 <span className='relative z-10'>
-                    <span className='text-glow text-foreground'>Cirsitan</span> {""}
+                    <span className='text-glow text-foreground'>Cristian</span> {""}
                     Portfolio
                 </span>
             </a>
@@ -62,9 +62,7 @@ export const NavBar = () => {
                               {item.name}</a>
                       ))}
                   </div>
-              </div>
-                
-
+              </div>           
         </div>
     </nav>
   )

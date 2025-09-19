@@ -23,7 +23,7 @@ const skills = [
 
 const categories = ['All', 'Frontend', 'Backend', 'Tools'];
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = React.useState("all");
+  const [activeCategory, setActiveCategory] = React.useState("All");
   const filteredSkills = skills.filter((skill) => activeCategory === 'All' || skill.category === activeCategory);
   return (
     <section id='skills' className='py-24 px-4 relative bg-secondary/30'>
