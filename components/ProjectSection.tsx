@@ -1,6 +1,5 @@
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import React from 'react'
-import Img from 'next/image';
 
 const projects = [
   {
@@ -11,7 +10,7 @@ const projects = [
     link: "/projects/project-one",
     tags: ["React", "Node.js", "Bootstrap", "Firebase", "FireStore"],
     demoUrl: "https://hogar-cariari.web.app/",
-    repoUrl: "https://github.com/user/project-one"
+    repoUrl: "https://github.com/ByCristtv/NursingHome-Cariari/tree/main/hogar-cariari"
   },
   {
     id: 2,
@@ -20,8 +19,8 @@ const projects = [
     image: "/projects/ChatApp.png",
     link: "/projects/chat-application",
     tags: ["React", "JavaScript", "Tailwind CSS", "NodeJS", "Vite", "Firebase", "ZegoCloud", "Context API", "Vercel"],
-    demoUrl: "https://demo.projecttwo.com",
-    repoUrl: "https://github.com/user/project-two"
+    demoUrl: "https://chat-app-zeta-swart.vercel.app/",
+    repoUrl: "https://github.com/ByCristtv/Chat-App"
   },
   {
     id: 3,
@@ -30,8 +29,8 @@ const projects = [
     image: "/projects/profile.png",
     link: "/projects/project-three",
     tags: ["React","JavaScript", "Tailwind CSS", "Vite", "Framer Motion", "Gsap", "Vercel"],
-    demoUrl: "https://professional-website-3tkqbm3fs-bycrissr189-8693s-projects.vercel.app/",
-    repoUrl: "https://github.com/user/project-three"
+    demoUrl: "https://professional-website-rosy-theta.vercel.app/",
+    repoUrl: "https://github.com/ByCristtv/Professional-Website"
   },
   {
     id: 4,
@@ -40,8 +39,8 @@ const projects = [
     image: "/projects/Fragrance.png",
     link: "/projects/fragrance-store",
     tags: ["React", "JavaScript", "Tailwind CSS", "Vite"],
-    demoUrl: "https://demo.projectthree.com",
-    repoUrl: "https://github.com/user/project-three"
+    demoUrl: "https://fragrance-shop-xi.vercel.app/",
+    repoUrl: "https://github.com/ByCristtv/Fragrance-Shop"
   },
   
 ];
