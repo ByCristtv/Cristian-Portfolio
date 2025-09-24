@@ -1,4 +1,6 @@
-import { ArrowRight, ExternalLink, Github } from 'lucide-react';
+'use client';
+import { url } from 'inspector';
+import { ArrowRight, ExternalLink, Github, Link } from 'lucide-react';
 import React from 'react'
 
 const projects = [
@@ -44,6 +46,9 @@ const projects = [
   },
   
 ];
+const openProject = (url: string) => {
+  window.open(url, '_blank');
+}
 
 export const ProjectSection = () => {
   return (
@@ -66,6 +71,7 @@ export const ProjectSection = () => {
             >
               <div className="h-48 overflow-hidden">
                 <img
+                  onClick={() => openProject(project.demoUrl)}
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
