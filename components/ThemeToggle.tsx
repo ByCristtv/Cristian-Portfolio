@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Sun, Moon} from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -7,18 +7,7 @@ import { cn } from '@/lib/utils';
 
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
-    useEffect(() => {
-        // Check localStorage or default to dark
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            setIsDarkMode(true);
-        } else {
-            document.documentElement.classList.remove('dark');
-            setIsDarkMode(false);
-        }
-    }, []);
-
+    
     const toggleTheme = () => {
         if (isDarkMode) {
             document.documentElement.classList.remove('dark');
