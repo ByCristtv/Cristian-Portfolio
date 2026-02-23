@@ -3,22 +3,24 @@ import React from 'react'
 import { cn } from '@/lib/utils';
 const skills = [
   //FrontEnd
-  { name: 'JavaScript', level: 90, category: 'Frontend' },
+  { name: 'JavaScript', level: 95, category: 'Frontend' },
   { name: 'React', level: 85, category: 'Frontend' },
-  { name: 'TypeScript', level: 80, category: 'Frontend' },
-  { name: 'HTML/CSS', level: 70, category: 'Frontend' },
-  { name: 'Tailwind CSS', level: 75, category: 'Frontend' },
+  { name: 'TypeScript', level: 90, category: 'Frontend' },
+  { name: 'HTML/CSS', level: 85, category: 'Frontend' },
+  { name: 'Tailwind CSS', level: 95, category: 'Frontend' },
   //Backend
   { name: 'Node.js', level: 85, category: 'Backend' },
   { name: 'Express', level: 80, category: 'Backend' },
-  { name: 'MongoDB', level: 70, category: 'Backend' },
-  { name: 'SQL Server', level: 80, category: 'Backend' },
+  { name: 'NoSQL', level: 90, category: 'Backend' },
+  { name: 'PostgreSQL', level: 90, category: 'Backend' },
   { name: 'Python', level: 80, category: 'Backend' },
+  { name: 'FastAPI', level: 85, category: 'Backend' },
 
   //Tools
   { name: 'Git/GitHub', level: 90, category: 'Tools' },
   { name: 'VS Code', level: 95, category: 'Tools' },
-  { name: 'Cypress', level: 70, category: 'Tools' },
+  { name: 'Cypress', level: 80, category: 'Tools' },
+  { name: 'Jest', level: 85, category: 'Tools' },
 ]
 
 const categories = ['All', 'Frontend', 'Backend', 'Tools'];

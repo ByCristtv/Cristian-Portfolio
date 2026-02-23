@@ -20,7 +20,7 @@ export const Hero = () => {
 
                     </h1>
                     <p className='text-lg md:text-xl text-muted-foreground max-2-2xl opacity-0 animate-fade-in-delay-3'>
-                        Software Engineer specialized in building exceptional Full-stack web applications with React and different modern technologies.
+                        Software Engineer with 2 years of experience specialized in building exceptional Full-stack web applications with React, Javascript/Typescript, PostgreSQL, Firebase, Jest and different modern technologies.
                     </p>
                     <div className='opacity-0 animate-fade-in-delay-4'>
                         <a href="#projects" className='cosmic-button'>

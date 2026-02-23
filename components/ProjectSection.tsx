@@ -6,8 +6,18 @@ import React from 'react'
 const projects = [
   {
     id: 1,
+    title: "POS System for Motorepuestos Arias",
+    description: "A point-of-sale system to manage sales, inventory, clients, invoicing, electronic invoicing and dashboard.",
+    image: "/projects/pos.png",
+    link: "/projects/project-one",
+    tags: ["React", "JavaScript", "Tailwind CSS", "PostgreSQL", "Supabase", "API", "Tanstack", "Vite", "Zustand", "Vercel", "NodeJS"],
+    demoUrl: "https://pos-motorepuestos.vercel.app/",
+    repoUrl: "https://github.com/ByCristtv/React-POS"
+  },
+  {
+    id: 2,
     title: "Nursing Home Management System",
-    description: "A comprehensive system for managing nursing home operations and staff.",
+    description: "A comprehensive system for managing appointments, residents with medical records, prescriptions.",
     image: "/projects/nursing.png",
     link: "/projects/project-one",
     tags: ["React", "Node.js", "Bootstrap", "Firebase", "FireStore"],
@@ -15,7 +25,17 @@ const projects = [
     repoUrl: "https://github.com/ByCristtv/NursingHome-Cariari/tree/main/hogar-cariari"
   },
   {
-    id: 2,
+    id: 3,
+    title: "PDF Reports Generator",
+    description: "Mobile application that allows users to create and customize PDF reports with different templates, images, and text content, using React Native and Expo GO.",
+    image: "/projects/Movi.jpeg",
+    link: "/projects/pdf-reports",
+    tags: ["React Native", "TypeScript", "Expo GO", "Localstorage", "Firebase Auth", "Firestore"],
+    demoUrl: "https://pdf-reports.vercel.app/",
+    repoUrl: "https://github.com/ByCristtv/PDF-Reports-Generator"
+  },
+  {
+    id: 4,
     title: "Chat Application",
     description: "A real-time chat application built with React, Firebase and ZegoCloud.",
     image: "/projects/ChatApp.png",
@@ -25,7 +45,7 @@ const projects = [
     repoUrl: "https://github.com/ByCristtv/Chat-App"
   },
   {
-    id: 3,
+    id: 5,
     title: "My Professional Website",
     description: "A responsive professional website built with React and different animations.",
     image: "/projects/profile.png",
@@ -35,12 +55,12 @@ const projects = [
     repoUrl: "https://github.com/ByCristtv/Professional-Website"
   },
   {
-    id: 4,
+    id: 6,
     title: "Fragrance Shop",
-    description: "A beautiful e-commerce website for a fragrance store.",
+    description: "E-commerce website for a fragrance store with responsive design.",
     image: "/projects/Fragrance.png",
     link: "/projects/fragrance-store",
-    tags: ["React", "JavaScript", "Tailwind CSS", "Vite"],
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     demoUrl: "https://fragrance-shop-xi.vercel.app/",
     repoUrl: "https://github.com/ByCristtv/Fragrance-Shop"
   },
