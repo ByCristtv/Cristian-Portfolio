@@ -1,29 +1,40 @@
 'use client'
 import React from 'react'
 import { cn } from '@/lib/utils';
+import { Icon } from '@iconify/react';
+
 const skills = [
-  //FrontEnd
-  { name: 'JavaScript', level: 95, category: 'Frontend' },
-  { name: 'React', level: 85, category: 'Frontend' },
-  { name: 'TypeScript', level: 90, category: 'Frontend' },
-  { name: 'HTML/CSS', level: 85, category: 'Frontend' },
-  { name: 'Tailwind CSS', level: 95, category: 'Frontend' },
-  //Backend
-  { name: 'Node.js', level: 85, category: 'Backend' },
-  { name: 'Express', level: 80, category: 'Backend' },
-  { name: 'NoSQL', level: 90, category: 'Backend' },
-  { name: 'PostgreSQL', level: 90, category: 'Backend' },
-  { name: 'Python', level: 80, category: 'Backend' },
-  { name: 'FastAPI', level: 85, category: 'Backend' },
+  // Frontend
+  { name: 'JavaScript', category: 'Frontend', icon: "devicon:javascript" },
+  { name: 'TypeScript', category: 'Frontend', icon: "devicon:typescript" },
+  { name: 'React',  category: 'Frontend', icon: "devicon:react" },
+  { name: 'Next.js',  category: 'Frontend', icon: "devicon:nextjs" },
+  { name: 'Tailwind CSS',  category: 'Frontend', icon: "logos:tailwindcss-icon" },
 
-  //Tools
-  { name: 'Git/GitHub', level: 90, category: 'Tools' },
-  { name: 'VS Code', level: 95, category: 'Tools' },
-  { name: 'Cypress', level: 80, category: 'Tools' },
-  { name: 'Jest', level: 85, category: 'Tools' },
-]
+  // Backend
+  { name: 'Node.js', category: 'Backend', icon: "devicon:nodejs" },
+  { name: 'Express', category: 'Backend', icon: "simple-icons:express" },
+  { name: 'PostgreSQL', category: 'Backend', icon: "devicon:postgresql" },
+  { name: 'SQL Server', category: 'Backend', icon: "devicon:microsoftsqlserver" },
+  { name: 'Python', category: 'Backend', icon: "devicon:python" },
+  { name: 'FastAPI', category: 'Backend', icon: "simple-icons:fastapi" },
+  { name: 'C#', category: 'Backend', icon: "devicon:csharp" },
+  { name: '.NET', category: 'Backend', icon: "skill-icons:dotnet" },
 
-const categories = ['All', 'Frontend', 'Backend', 'Tools'];
+  // AI / Automation 
+  { name: 'AI Integration', category: 'AI', icon: "simple-icons:openai" },
+  { name: 'LLM Agents', category: 'AI', icon: "mdi:robot-outline" },
+  { name: 'Automation Systems', category: 'AI', icon: "mdi:cog-sync-outline" },
+
+  // Tools
+  { name: 'Git/GitHub', category: 'Tools', icon: "devicon:git" },
+  { name: 'Docker', category: 'Tools', icon: "devicon:docker" },
+  { name: 'CI/CD', category: 'Tools', icon: "logos:github-actions" },
+  { name: 'Jest', category: 'Tools', icon: "skill-icons:jest" },
+  { name: 'AWS', category: 'Tools', icon: "skill-icons:aws-dark" },
+];
+
+const categories = ['All', 'Frontend', 'Backend', 'AI', 'Tools'];
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = React.useState("All");
   const filteredSkills = skills.filter((skill) => activeCategory === 'All' || skill.category === activeCategory);
@@ -50,20 +61,16 @@ export const SkillsSection = () => {
 
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {filteredSkills.map((skill,key) => (
-              <div key={key} className='bg-card p-6 rounded-lg shadow-xs card-hover'>
+              <div key={key} className='group bg-card p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300'>
+                <div className='flex items-center space-x-4 mb-4'>
+                  <Icon
+                    icon={skill.icon}
+                    className="text-4xl text-primary/80 group-hover:text-primary transition-colors"
+                  />
+                </div>
                 <div className='text-left mb-4'>
                   <h3 className='font-semibold text-lg'>{skill.name}</h3> 
-                </div>
-                <div className='w-full bg-secondary/50 rounded-full h-2 overflow-hidden'>
-                  <div className='bg-primary h-2 rounded-full origin-left animate-[grow_width_1.5s_ease-out]'
-                    style={{ width: skill.level + '%'}}/>
-                  </div>
-                  <div className='text-right mt-1'>
-                    <span className='text-sm text-muted-foreground'>
-                      {skill.level}%
-                    </span>
-                  </div>
-                
+                </div>                           
               </div>
             ))}
 
