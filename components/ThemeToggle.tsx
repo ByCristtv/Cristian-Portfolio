@@ -1,30 +1,44 @@
 "use client";
-import React     from 'react';
-import { Sun, Moon} from 'lucide-react';
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
- const ThemeToggle = () => {
 
-    const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-    
-    const toggleTheme = () => {
-        if (isDarkMode) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            setIsDarkMode(false);
+/**
+ * Light/dark toggle. Dark is the default (premium look); the choice is
+ * persisted to localStorage. The no-flash init script lives in layout.tsx.
+ */
+export function ThemeToggle({ className }: { className?: string }) {
+  const [isLight, setIsLight] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-        }else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            setIsDarkMode(true);
-        };
+  useEffect(() => {
+    setMounted(true);
+    setIsLight(document.documentElement.classList.contains("light"));
+  }, []);
+
+  const toggle = () => {
+    const next = !isLight;
+    setIsLight(next);
+    document.documentElement.classList.toggle("light", next);
+    try {
+      localStorage.setItem("theme", next ? "light" : "dark");
+    } catch {
+      /* ignore storage errors */
     }
+  };
 
-  return <button className={cn('fixed max-sm:hidden top-5 z-50 p-2 rounded-full transition-colors duration-300',
-    'focus:outline-hidden'
-  )} onClick={toggleTheme}>
-    {isDarkMode ? <Sun className='h-6 w-6 text-yellow-300' /> : <Moon className='h-6 w-6 text-blue-900' />}</button>
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={isLight ? "Switch to dark theme" : "Switch to light theme"}
+      className={cn(
+        "inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/70 bg-card/50 text-foreground/80 transition-colors hover:text-primary hover:border-primary/50",
+        className
+      )}
+    >
+      {mounted && isLight ? <Moon className="h-[18px] w-[18px]" /> : <Sun className="h-[18px] w-[18px]" />}
+    </button>
+  );
 }
-
-export default ThemeToggle;

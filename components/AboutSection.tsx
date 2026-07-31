@@ -1,76 +1,103 @@
-import { Briefcase, Code, User } from 'lucide-react'
-import React from 'react'
+import Link from "next/link";
+import { Download, ArrowRight, Boxes, HeartPulse, RadioTower, Code2, ShieldCheck, TestTube2 } from "lucide-react";
+import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
+import { site } from "@/data/site";
 
-export const AboutSection = () => {
+const industries = [
+  { icon: Boxes, name: "Retail", note: "POS & e-commerce platforms" },
+  { icon: HeartPulse, name: "Healthcare", note: "Care-management systems" },
+  { icon: RadioTower, name: "Telecom", note: "Field reporting apps" },
+];
+
+const principles = [
+  { icon: Code2, title: "Clean Architecture", note: "Business rules isolated from UI and data." },
+  { icon: ShieldCheck, title: "SOLID Principles", note: "Maintainable, well-structured code by design." },
+  { icon: TestTube2, title: "Automated Testing", note: "Vitest, Jest & Playwright across the stack." },
+];
+
+export function About() {
   return (
-    <section id='about' className='py-24 px-4 relative'>
-      {" "}
-      <div className='container max-auto max-w-5xl'>
-        <h2 className='text-3xl md:text-4xl font-bold text-center mb-12'>
-          About <span className='text-primary'> Me</span>
-        </h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
-          <div className='space-y-6 gradient-border p-6 rounded-lg'>
-            <h3 className='font-semibold text-2xl'>
-              Software Engineer & AI Enthusiast
-            </h3>
-            <p className='text-muted-foreground'>
-              Graduated with a degree in Computer Engineering.
-              I have a passion for creating web applications integrating AI technologies to solve real-world problems. With over 2 years of experience in web and mobile development, I have honed my skills in React, TypeScript, Node.js, Express, Python, C#, AWS, PostgreSQL, and LLM assistants.
-              
-            </p>
-            <p className='text-muted-foreground'>
-              I thrive in collaborative environments and am always eager to learn new technologies and take on challenging projects. My goal is to leverage my skills and experience to create innovative solutions that make a positive impact.
-            </p>
-            <div className='flex flex-col sm:flex-row gap-4 pt-4 justify-center'>
-              <a href="#contact" className='cosmic-button text-center'>
-                {" "}
-                Contact Me
-                </a>
-                <a href="/CV/CristianSolanoResume.pdf" className='px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/20 transition-colors duration-300 text-center' download target="_blank">
-                {" "}
-                Download my CV
-                </a>
-            </div>
-          </div>
-          <div className='grid grid-cols-1 gap-6'>
-            <div className='gradient-border p-6 card-hover'>  
-              <div className='flex items-start gap-4'>
-                <div className='p-3 rounded-full bg-primary/10'>
-                  <Code className='h-6 w-6 text-primary'/>
-                </div>
-                <div className='text-left'>
-                  <h4 className='font-semibold text-lg'>Web Developer</h4>
-                  <p className='text-muted-foreground'>Building responsive and accessible web applications.</p>
-                </div>
-              </div>
-            </div>
-            <div className='gradient-border p-6 card-hover'>
-              <div className='flex items-start gap-4'>
-                <div className='p-3 rounded-full bg-primary/10'>
-                  <User className='h-6 w-6 text-primary'/>
-                </div>
-                <div className='text-left'>
-                  <h4 className='font-semibold text-lg'>Freelance Expert</h4>
-                  <p className='text-muted-foreground'>Providing specialized services for various clients and projects.</p>
-                </div>
-              </div>
-            </div>
-            <div className='gradient-border p-6 card-hover'>
-              <div className='flex items-start gap-4'>
-                <div className='p-3 rounded-full bg-primary/10'>
-                  <Briefcase className='h-6 w-6 text-primary'/>
-                </div>
-                <div className='text-left'>
-                  <h4 className='font-semibold text-lg'>Product Engineer</h4>
-                  <p className='text-muted-foreground'>Designing and developing innovative products that solve real-world problems.</p>
-                </div>
-              </div>
+    <section id="about" className="scroll-mt-24 py-24 md:py-32">
+      <div className="container-page">
+        <SectionHeading
+          align="left"
+          eyebrow="About"
+          title={
+            <>
+              Engineering that models the <span className="text-gradient">real business</span> underneath.
+            </>
+          }
+        />
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          {/* Bio card */}
+          <Reveal className="surface flex flex-col justify-between gap-8 p-8 md:p-10">
+            <div className="space-y-5 text-muted-foreground">
+              <p className="text-lg leading-relaxed text-foreground">
+                I&apos;m a Computer Engineering graduate who loves turning tangled, manual workflows into
+                software people can trust.
+              </p>
+              <p className="leading-relaxed">
+                Over 2+ years I&apos;ve shipped scalable platforms and automation across retail, healthcare,
+                and telecommunications — from a multi-branch point-of-sale SaaS to a hybrid e-commerce
+                platform with a self-hosted AI assistant. I care deeply about modeling complex business
+                domains and keeping code maintainable long after launch.
+              </p>
+              <p className="leading-relaxed">
+                I also use AI assistants as a serious engineering tool — pressure-testing design decisions
+                and hunting for weak points — while always staying the one making the call.
+              </p>
             </div>
 
+            <div className="flex flex-wrap gap-3">
+              <Link href="/#contact" className="btn-primary">
+                Get in touch <ArrowRight size={16} />
+              </Link>
+              <a href={site.cv} download target="_blank" rel="noreferrer" className="btn-ghost">
+                <Download size={16} /> Download CV
+              </a>
+            </div>
+          </Reveal>
+
+          {/* Right column */}
+          <div className="grid gap-6">
+            <Reveal delay={80} className="surface p-7">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                How I build
+              </h3>
+              <ul className="mt-5 space-y-4">
+                {principles.map((p) => (
+                  <li key={p.title} className="flex items-start gap-4">
+                    <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary ring-1 ring-primary/20">
+                      <p.icon size={18} />
+                    </span>
+                    <div>
+                      <p className="font-medium">{p.title}</p>
+                      <p className="text-sm text-muted-foreground">{p.note}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={160} className="surface p-7">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                Industries served
+              </h3>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {industries.map((i) => (
+                  <div key={i.name} className="rounded-xl border border-border bg-background/40 p-4">
+                    <i.icon className="text-primary" size={20} />
+                    <p className="mt-3 font-medium">{i.name}</p>
+                    <p className="text-xs text-muted-foreground">{i.note}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

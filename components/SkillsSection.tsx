@@ -1,82 +1,103 @@
-'use client'
-import React from 'react'
-import { cn } from '@/lib/utils';
-import { Icon } from '@iconify/react';
+"use client";
 
-const skills = [
-  // Frontend
-  { name: 'JavaScript', category: 'Frontend', icon: "devicon:javascript" },
-  { name: 'TypeScript', category: 'Frontend', icon: "devicon:typescript" },
-  { name: 'React',  category: 'Frontend', icon: "devicon:react" },
-  { name: 'Next.js',  category: 'Frontend', icon: "devicon:nextjs" },
-  { name: 'Tailwind CSS',  category: 'Frontend', icon: "logos:tailwindcss-icon" },
+import { useState } from "react";
+import { Icon } from "@iconify/react";
+import { cn } from "@/lib/utils";
+import { SectionHeading } from "./SectionHeading";
+import { Reveal } from "./Reveal";
 
-  // Backend
-  { name: 'Node.js', category: 'Backend', icon: "devicon:nodejs" },
-  { name: 'Express', category: 'Backend', icon: "simple-icons:express" },
-  { name: 'PostgreSQL', category: 'Backend', icon: "devicon:postgresql" },
-  { name: 'SQL Server', category: 'Backend', icon: "devicon:microsoftsqlserver" },
-  { name: 'Python', category: 'Backend', icon: "devicon:python" },
-  { name: 'FastAPI', category: 'Backend', icon: "simple-icons:fastapi" },
-  { name: 'C#', category: 'Backend', icon: "devicon:csharp" },
-  { name: '.NET', category: 'Backend', icon: "skill-icons:dotnet" },
+type Skill = { name: string; category: string; icon: string };
 
-  // AI / Automation 
-  { name: 'AI Integration', category: 'AI', icon: "simple-icons:openai" },
-  { name: 'LLM Agents', category: 'AI', icon: "mdi:robot-outline" },
-  { name: 'Automation Systems', category: 'AI', icon: "mdi:cog-sync-outline" },
+const skills: Skill[] = [
+  { name: "JavaScript", category: "Frontend", icon: "devicon:javascript" },
+  { name: "TypeScript", category: "Frontend", icon: "devicon:typescript" },
+  { name: "React", category: "Frontend", icon: "devicon:react" },
+  { name: "Next.js", category: "Frontend", icon: "devicon:nextjs" },
+  { name: "React Native", category: "Frontend", icon: "devicon:react" },
+  { name: "Tailwind CSS", category: "Frontend", icon: "logos:tailwindcss-icon" },
+  { name: "TanStack Query", category: "Frontend", icon: "logos:react-query-icon" },
 
-  // Tools
-  { name: 'Git/GitHub', category: 'Tools', icon: "devicon:git" },
-  { name: 'Docker', category: 'Tools', icon: "devicon:docker" },
-  { name: 'CI/CD', category: 'Tools', icon: "logos:github-actions" },
-  { name: 'Jest', category: 'Tools', icon: "skill-icons:jest" },
-  { name: 'AWS', category: 'Tools', icon: "skill-icons:aws-dark" },
+  { name: "Node.js", category: "Backend", icon: "devicon:nodejs" },
+  { name: "Express", category: "Backend", icon: "simple-icons:express" },
+  { name: "C#", category: "Backend", icon: "devicon:csharp" },
+  { name: ".NET", category: "Backend", icon: "devicon:dotnetcore" },
+  { name: "Python", category: "Backend", icon: "devicon:python" },
+  { name: "FastAPI", category: "Backend", icon: "simple-icons:fastapi" },
+
+  { name: "PostgreSQL", category: "Databases", icon: "devicon:postgresql" },
+  { name: "SQL Server", category: "Databases", icon: "devicon:microsoftsqlserver" },
+  { name: "Supabase", category: "Databases", icon: "logos:supabase-icon" },
+  { name: "Firebase", category: "Databases", icon: "logos:firebase" },
+
+  { name: "LLM Integration", category: "AI", icon: "simple-icons:openai" },
+  { name: "Ollama · Llama 3", category: "AI", icon: "simple-icons:ollama" },
+  { name: "AI-assisted Dev", category: "AI", icon: "mdi:robot-outline" },
+
+  { name: "AWS", category: "Cloud & DevOps", icon: "logos:aws" },
+  { name: "Vercel", category: "Cloud & DevOps", icon: "logos:vercel-icon" },
+  { name: "Docker", category: "Cloud & DevOps", icon: "devicon:docker" },
+  { name: "CI/CD", category: "Cloud & DevOps", icon: "logos:github-actions" },
+  { name: "Git & GitHub", category: "Cloud & DevOps", icon: "devicon:git" },
+
+  { name: "Vitest", category: "Testing", icon: "logos:vitest" },
+  { name: "Jest", category: "Testing", icon: "logos:jest" },
+  { name: "Playwright", category: "Testing", icon: "logos:playwright" },
 ];
 
-const categories = ['All', 'Frontend', 'Backend', 'AI', 'Tools'];
-export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = React.useState("All");
-  const filteredSkills = skills.filter((skill) => activeCategory === 'All' || skill.category === activeCategory);
+const categories = ["All", "Frontend", "Backend", "Databases", "AI", "Cloud & DevOps", "Testing"];
+
+export function SkillsSection() {
+  const [active, setActive] = useState("All");
+  const filtered = skills.filter((s) => active === "All" || s.category === active);
+
   return (
-    <section id='skills' className='py-24 px-4 relative bg-secondary/30'>
-        <div className='container max-auto max-w-5xl'>
-          <h2 className='text-3xl md:text-4xl font-bold mb-12 text-center'>
-            My <span className='text-primary'>Skills</span>
-          </h2>
+    <section id="skills" className="scroll-mt-24 border-y border-border/60 bg-card/30 py-24 md:py-32">
+      <div className="container-page">
+        <SectionHeading
+          eyebrow="Skills & Tools"
+          title={
+            <>
+              A pragmatic, <span className="text-gradient">full-stack</span> toolkit
+            </>
+          }
+          description="Chosen for reliability and long-term maintainability — from typed frontends to relational data, cloud delivery, and automated testing."
+        />
 
-          <div className='flex flex-wrap justify-center gap-4 mb-12'>
-            {categories.map((category,key) => (
-              <button 
-                key={key} 
-                className={cn(`px-5 py-2 rounded-full transition-colors duration-300 capitalize`, 
-                  activeCategory === category ? 'bg-primary text-primary-foreground' : 'bg-secondary/70 text-foreground hover:bg-secondary'
-                )}
-                onClick={() => setActiveCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+        <Reveal className="mt-12 flex flex-wrap justify-center gap-2">
+          {categories.map((c) => (
+            <button
+              key={c}
+              type="button"
+              onClick={() => setActive(c)}
+              className={cn(
+                "rounded-full px-4 py-2 text-sm font-medium transition-all",
+                active === c
+                  ? "bg-primary text-primary-foreground shadow-[0_8px_24px_-12px_hsl(var(--primary))]"
+                  : "border border-border bg-background/50 text-muted-foreground hover:border-primary/40 hover:text-foreground"
+              )}
+            >
+              {c}
+            </button>
+          ))}
+        </Reveal>
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {filteredSkills.map((skill,key) => (
-              <div key={key} className='group bg-card p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300'>
-                <div className='flex items-center space-x-4 mb-4'>
-                  <Icon
-                    icon={skill.icon}
-                    className="text-4xl text-primary/80 group-hover:text-primary transition-colors"
-                  />
-                </div>
-                <div className='text-left mb-4'>
-                  <h3 className='font-semibold text-lg'>{skill.name}</h3> 
-                </div>                           
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
+          {filtered.map((skill) => (
+            <div
+              key={skill.name}
+              className="group surface surface-hover flex items-center gap-3.5 p-4 hover:[transform:translateY(-4px)] hover:border-primary/50"
+            >
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-background/70 ring-1 ring-border transition-transform duration-300 group-hover:scale-110">
+                <Icon icon={skill.icon} className="text-2xl" />
+              </span>
+              <div className="min-w-0">
+                <p className="truncate text-sm font-medium">{skill.name}</p>
+                <p className="truncate text-xs text-muted-foreground">{skill.category}</p>
               </div>
-            ))}
-
-          </div>
-
+            </div>
+          ))}
         </div>
-    </section> 
-  )
+      </div>
+    </section>
+  );
 }
