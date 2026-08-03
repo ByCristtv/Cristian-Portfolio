@@ -25,7 +25,7 @@ export function About() {
           eyebrow="About"
           title={
             <>
-              Engineering that models the <span className="text-gradient">real business</span> underneath.
+              Who Am I and <span className="text-gradient">What do I do?</span>
             </>
           }
         />
@@ -40,13 +40,13 @@ export function About() {
               </p>
               <p className="leading-relaxed">
                 Over 2+ years I&apos;ve shipped scalable platforms and automation across retail, healthcare,
-                and telecommunications — from a multi-branch point-of-sale SaaS to a hybrid e-commerce
+                and telecommunications, from a multi-branch point-of-sale SaaS to a hybrid e-commerce
                 platform with a self-hosted AI assistant. I care deeply about modeling complex business
                 domains and keeping code maintainable long after launch.
               </p>
               <p className="leading-relaxed">
                 I also use AI assistants as a serious engineering tool — pressure-testing design decisions
-                and hunting for weak points — while always staying the one making the call.
+                and hunting for weak points, while always staying the one making the call.
               </p>
             </div>
 

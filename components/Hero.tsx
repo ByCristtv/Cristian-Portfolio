@@ -101,15 +101,7 @@ export function Hero() {
                   className="mx-auto h-auto w-full"
                 />
               </div>
-            </div>
-
-            {/* Floating badges */}
-            <div className="glass absolute -left-5 top-10 hidden items-center gap-2 rounded-full px-3.5 py-2 text-xs font-medium shadow-lg sm:flex">
-              <Sparkles size={14} className="text-primary" /> AI-assisted engineering
-            </div>
-            <div className="glass absolute -right-4 bottom-14 hidden rounded-full px-3.5 py-2 text-xs font-medium shadow-lg sm:block">
-              <span className="text-primary">2+</span> yrs experience
-            </div>
+            </div>      
           </div>
         </div>
       </div>

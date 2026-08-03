@@ -15,10 +15,9 @@ export default function Page() {
       <Navbar />
       <main>
         <Hero />
-        <About />
+        <ProjectSection />       
         <SkillsSection />
-        <ProjectSection />
-        <Process />
+        <About />
         <ContactSection />
       </main>
       <Footer />

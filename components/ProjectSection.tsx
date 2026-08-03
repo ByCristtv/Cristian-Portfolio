@@ -97,7 +97,7 @@ export function ProjectSection() {
           eyebrow="Selected Work"
           title={
             <>
-              Case studies, not just <span className="text-gradient">screenshots</span>
+              Experience and real <span className="text-gradient">projects</span>
             </>
           }
           description="Each project has a dedicated case study covering both the business problem it solved and the engineering decisions behind it."

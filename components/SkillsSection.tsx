@@ -57,10 +57,10 @@ export function SkillsSection() {
           eyebrow="Skills & Tools"
           title={
             <>
-              A pragmatic, <span className="text-gradient">full-stack</span> toolkit
+              My main <span className="text-gradient">technologies</span>
             </>
           }
-          description="Chosen for reliability and long-term maintainability — from typed frontends to relational data, cloud delivery, and automated testing."
+          description="Chosen for reliability and long-term maintainability, from typed frontends to relational data, cloud delivery, and automated testing."
         />
 
         <Reveal className="mt-12 flex flex-wrap justify-center gap-2">
